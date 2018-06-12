@@ -53,7 +53,6 @@ storage.getAll = () => {
 
 // Pick one of the files from our data folder, if it's id is valid (file is there)
 storage.get = (id) => {
-  console.log(id);
   return new Promise( (resolve,reject) => {
     let file = `${dataDirectory}/${id}.json`;
     fs.readFile(file, (err,data) => {
@@ -86,7 +85,6 @@ storage.save = (data) => {
 };
 
 storage.delete = (id) => {
-  console.log(id);
   let success = 'Success';
   return new Promise( (resolve,reject) => {
     let filePath = `${dataDirectory}/${id}.json`;

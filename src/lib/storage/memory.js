@@ -5,7 +5,7 @@ const storage = module.exports = {};
 
 // We create a simple object to store our notes in memory
 const database = {};
-
+storage.database = database;
 // This use a straight "Promise.resolve"
 // When you do this, you don't have to do the whole promise wiring.
 // Rather, JS just returns a promise and immediately resolves it for you
@@ -31,5 +31,14 @@ storage.save = (data) => {
     else {
       reject('Invalid Data (No ID)');
     }
+  });
+};
+storage.delete = (id) => {
+  let success = 'Success';
+  return new Promise( (resolve,reject) => {
+    if ( database[id] ) { 
+      delete database[id];
+      resolve(success); }
+    else { reject(`${id} not found`); }
   });
 };

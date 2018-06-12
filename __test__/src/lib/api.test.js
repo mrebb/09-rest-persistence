@@ -3,6 +3,7 @@
 const superagent = require('superagent');
 const app = require('../../../src/app');
 const uuid = require('uuid/v4');
+const memory = require('../../../src/lib/storage/memory');
 
 describe('Simple Web Server', () => {
   beforeAll( () => {
@@ -106,10 +107,11 @@ describe('Simple Web Server', () => {
   });
   /** Lab-09 routes */
   it('handles a get request for notes with a query string with correct id value passed', () => {
-    let id = 123;
-    let obj = {'note-category':'reminders'};
+    let value = 123;
+    let obj = {'id':`${value}`,'note-category':'reminders'};
+    memory.database[obj.id] = obj;
     let expected = JSON.stringify(obj);
-    return superagent.get(`http://localhost:5000/api/v1/notes/?id=${id}`)
+    return superagent.get(`http://localhost:5000/api/v1/notes/?id=${value}`)
       .then(response => {
         expect(response.status).toEqual(200);
         expect(response.text).toEqual(expected);

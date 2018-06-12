@@ -45,7 +45,7 @@ router.route = (req,res) => {
     })
     // Otherwise, bug out with an error
     .catch(err => {
-      console.error('NOT_FOUND', req.parsed.pathname);
+      //console.error('NOT_FOUND', req.parsed.pathname);
       //res.writeHead(400);
       res.status = 404;
       res.statusMessage = 'Not Found';
