@@ -14,10 +14,10 @@ console.log(process.env.STORAGE);
 switch( process.env.STORAGE ) {
 case 'filesystem':
   console.log('i reached data store');
-  dataStorageModule = fileStorage;
+  dataStorageModule = memoryStorage;
   break;
 default:
-  dataStorageModule = memoryStorage;
+  dataStorageModule = fileStorage;
   break;
 }
 
