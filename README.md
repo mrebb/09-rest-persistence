@@ -1,8 +1,8 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) Lab 09: Vanilla REST API w/ Persistence
 
-<img src="https://travis-ci.com/mrebb/08-rest.svg?branch=master">
+<img src="https://travis-ci.com/mrebb/09-rest-persistence.svg?branch=master">
 
-## TRAVIS: https://travis-ci.com/mrebb/08-rest 
+## TRAVIS: https://travis-ci.com/mrebb/09-rest-persistence 
 
 ## HEROKU: https://restapilab.herokuapp.com 
 

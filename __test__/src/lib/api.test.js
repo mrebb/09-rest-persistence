@@ -109,7 +109,6 @@ describe('Simple Web Server', () => {
     let id = 123;
     let obj = {'note-category':'reminders'};
     let expected = JSON.stringify(obj);
-    console.log(__dirname);
     return superagent.get(`http://localhost:5000/api/v1/notes/?id=${id}`)
       .then(response => {
         expect(response.status).toEqual(200);
