@@ -16,13 +16,13 @@ let sendJSON = (res,data) => {
   res.end();
 };
 
-let sendDeleteJSON = (res,data) => {
-  res.statusCode = 204;
-  res.statusMessage = 'OK';
-  res.setHeader('Content-Type', 'application/json');
-  res.write( JSON.stringify(data) );
-  res.end();
-};
+// let sendDeleteJSON = (res,data) => {
+//   res.statusCode = 204;
+//   res.statusMessage = 'No Content';
+//   res.setHeader('Content-Type', 'application/json');
+//   res.write( JSON.stringify(data) );
+//   res.end();
+// };
 
 let serverError = (res,err) => {
   let error = { error:err };
@@ -55,7 +55,11 @@ router.delete('/api/v1/notes/', (req,res) => {
     Notes.deleteOne(req.query.id)
       .then( success => {
         let data = {id:req.query.id,deleted:success};
-        sendDeleteJSON(res,data);
+        res.statusCode = 204;
+        res.statusMessage = 'No Content';
+        res.setHeader('Content-Type', 'application/json');
+        res.write(data);
+        res.end();
       })
       .catch(console.error);
   }

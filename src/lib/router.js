@@ -42,8 +42,6 @@ router.route = (req,res) => {
         res.write(`Resource Not Found (${req.parsed.pathname})`);
         res.end();
       }
-       
-      
     })
     // Otherwise, bug out with an error
     .catch(err => {
