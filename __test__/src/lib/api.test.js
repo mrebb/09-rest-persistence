@@ -160,7 +160,7 @@ describe('Simple Web Server', () => {
     let id = 3212;
     return superagent.delete(`http://localhost:5000/api/v1/notes/?id=${id}`)
       .then(response => {
-        expect(response.status).toEqual(204);
+        expect(response.statusCode).toEqual(204);
         expect(response.text).toEqual('');
       });
   });
